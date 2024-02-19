@@ -1,0 +1,8 @@
+kubectl apply -f nginx.yml
+
+kubectl apply -f /path/to/config-files
+
+
+update Objects
+
+kubectl apply -f nginx.yml

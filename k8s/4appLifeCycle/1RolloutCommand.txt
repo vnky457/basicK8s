@@ -1,0 +1,19 @@
+kubectl rollout status deployment/deployment_name
+
+kubectl rollout history deployment/deployment_name
+
+kubectl describe deploy deployment_name
+
+## we have two deployment strategy 
+1. Recreate  -> it's not default deployment strategy 
+    It will delete the existing deployment or pods and create new deployment 
+    We get application downtime if we use this
+2. RollingUpdate
+    It will delete one pod and create new pod -, one pod at a time. 
+
+
+kubectl apply -f deployment-definition.yaml
+# it will do the RollingUpdate
+
+kubectl rollout undo deployment/deployment_name 
+# it'll rollback to previous deployment

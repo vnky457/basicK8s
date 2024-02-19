@@ -1,0 +1,28 @@
+## if there is no scheduler or we want deploy pod in particuler node we can use this method
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 8080
+  nodeName: node_name ## we can mention this if we are going to create new POD, we can't mention in existing pod
+
+
+## if POD is already exists and we want to assing pod to paticuler node - Need to use Binding
+
+---
+apiVersion: v1
+kind: Binding
+metadata:
+  name: nginx
+targetPort:
+  apiVersion: v1
+  kind: node
+  name: node_name

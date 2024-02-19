@@ -1,0 +1,17 @@
+apiVersion: v1  ## version same as POD and ReplicaController version
+kind: Service # Service type
+metadata:
+  name: myapp-service
+spec:
+  type: NodePort  # Service have 3 types. a. NodePort b. ClusterIP  c. LoadBalancer
+  ports:
+    - targetPort: 80  ## targetPort represents the Port of the POD
+    ## In defination file we are not mention target port - it assumes the port and target port number are same
+      port: 80  ## here Port represents the port of service
+      ## node port range is 30000 to 32767 
+      ## here by using nodePort 30008 - we access or connect the POD
+      nodePort: 30008 ## nodePort represents the port of the Node. 
+  ## in selector section mention pod lables
+  selector:  
+    app: myapp
+    tier: front-end-p

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-backend-service
+spec:
+  type: ClusterIP ## this is default service type. 
+  #If you don't mention anything in the service defination file , it takes ClusterIP service type
+  ports: 
+    - targetPort: 80
+      port: 80
+  selector:
+    app: myapp    
+    tier: backend-app
+
+## to get list of services in the cluster
+
+## kubectl get services
+
+## to create service => kubectl create -f 6.service.ClusterIP.yml

@@ -1,0 +1,6 @@
+az deployment group -g <rg Name> -f main.bicep --confirm-with-what-if
+                or
+
+az deplyment group -g <rg_name> -f main.bicep -c
+
+az deployment group -g <rg_name> -f main.bicep -p main.parameter.json

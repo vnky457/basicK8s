@@ -1,0 +1,37 @@
+## CPU resource limit examples
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-resource-limits
+spec:
+  limits:
+  - default:
+      cpu: 500m
+    defaultRequest:
+      cpu: 500m
+    max:
+      cpu: "1"
+    min:
+      cpu: 100m
+    type: Container
+
+## Memory limit defination file examples
+
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: memory-resource-limits
+spec:
+  limits:
+  - default:
+      memory: 1Gi
+    defaultRequest:
+      memory: 1Gi
+    max:
+      memory: 1Gi
+    min:
+      memory: 500Mi
+    type: Container
+
+## we can giv

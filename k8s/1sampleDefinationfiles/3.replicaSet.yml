@@ -1,0 +1,29 @@
+apiVersion: apps/v1 # in Pod & replica Controller version v1 
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaSet
+  labels:
+    tier: front-end-rs
+spec:
+  template:
+    metadata: 
+      name: redis
+      labels:
+        tier: front-end
+    spec:
+      containers:
+      - name: myBusyBox
+        image: busybox
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: front-end
+
+## to scale the pods - just update the replicas section and use following command
+## kubectl replace -f 3.replicaSet.yml -> it will update the no.of replicas
+## command way # kubectl scale --replicas=6 -f 3.replicaSet.yml
+##          or
+##  kubectl scale --replicas=6 replicaset myapp-replicaSet
+##          here replicaset is type ==> my-replicaSet is name of my file or definationFile
+
+## To delete all pods under replica set => kubectl delete replicaset myapp-replicaSet

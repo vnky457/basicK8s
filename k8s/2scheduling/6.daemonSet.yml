@@ -1,0 +1,52 @@
+
+
+## Daemon set is like Replica Set - but it's will automatically create pod/service when new NODE add to cluster
+
+
+## Daemon set examples - deploying Monitoring solutions or Logs Viewers
+
+## Daemon set UseCase- ex:  Kube-proxy 
+
+## Daemon set UseCase in Networking : ex: weave-net
+
+apiVersion: apps/v1
+kind: DaemonSet ## this is only deference with replicaSet 
+metadata:
+  name: monitoring-daemon
+spec:
+  selector:
+    matchLabels:
+      agent: monitoring-agent
+  template:
+    metadata:
+      labels:
+        agent: monitoring-agent
+    spec:
+      containers:
+      - name: monitoring-agent
+        image: image-monitoring-agent
+
+
+## kubectl get daemonsets
+## kubectl describe daemonsets daemonset_name
+
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: elasticsearch
+  name: elasticsearch
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      containers:
+      - image: registry.k8s.io/fluentd-elasticsearch:1.20
+        name: fluentd-elasticsearch

@@ -1,0 +1,3 @@
+## definition files are present in the manifests directory /etc/kubernetes/manifests
+
+static pod manifest path look at the file /var/lib/kubelet/config.yaml

@@ -1,0 +1,5 @@
+kubectl top node
+kubectl top pod
+
+## it only specific to particuler POD
+kubectl logs -f Name_of_Pod 

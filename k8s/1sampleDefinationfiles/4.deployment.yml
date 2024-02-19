@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment # this is only difference we have compared to replica set defination file
+metadata:
+  name: myapp-deployment
+  labels:
+    tier: front-end-deployment
+spec:
+  template:
+    metadata:
+      name: mypod-dp
+      labels:
+        tier: front-end-dp
+    spec:
+      containers:
+      - name: mybusybox
+        image: busybox
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: front-end-dp

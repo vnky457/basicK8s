@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: redis
+  namespace: dev ## it creates the POD under "dev" namespace always
+  labels:
+    tier: front-end-p
+spec:
+  containers:
+  - name: redis
+    image: redis

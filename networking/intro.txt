@@ -1,0 +1,18 @@
+Basic Network commands
+
+ip link 
+
+ip addr
+
+ip add add ip_id/24 dev eth0
+
+ip route 
+
+to check ip forwarding in routing host 
+
+cat /proc/sys/net/ip4/ip_forward
+
+ETCD is listening on two ports. Which of these have more client connections established
+        netstat -anp | grep etcd
+    netstat -anp | grep etcd | grep 2380 | wc -l 
+    netstat -anp | grep etcd | grep 2379 | wc -l 

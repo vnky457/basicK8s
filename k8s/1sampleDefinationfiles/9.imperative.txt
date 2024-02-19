@@ -1,0 +1,25 @@
+kubectl run mynginx --image=nginx
+
+kubectl create deployment mynginx --image=nginx
+
+kubectl expose deployment mynginx --port 80
+
+kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml
+or 
+kubectl create service clusterip redis --tcp=6379:6379 --dry-run=client -o yaml
+
+kubectl create service nodeport nginx --tcp=80:80 --node-port=30080 --dry-run=client -o yaml
+
+kubectl edit deployment mynginx
+
+kubectl scale deployment mynginx --replicas=5
+
+kubectl set image deployment mynginx nginx=nginx:1.18
+
+kubectl create -f nginx.yml
+
+kubectl replace -f nginx.yml
+
+kubectl delete -f nginx.yml
+
+

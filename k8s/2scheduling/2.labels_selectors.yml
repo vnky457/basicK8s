@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    name: nginx
+    env: prod
+    bu: finance
+    tier: frontend
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 8080
+
+
+
+## kubectl get pods --selector env=dev
+

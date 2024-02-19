@@ -1,0 +1,34 @@
+##taint is applied to node to restrict pods without toleration info
+
+# kubectl taint nodes node-name key=value:taint-effect
+
+# ex: kubectl taint nodes node1 app=blue:NoSchedule
+
+## we have 3 taint-effects
+
+# 1. NoSchedule 2. PreferNoShedule 3. NoExecute
+
+## toleration added to POD
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 8080
+  tolerations:
+  - key: "app"
+    operator: "Equal"
+    value: "blue"
+    effect: "NoSchedule"
+
+
+# to describe taint in node 
+# kubectl describe node node_name | grep Taint
+# ex: kubectl describe node kubemaster | grep Taint

@@ -1,0 +1,9 @@
+To connent to aks cluster from local
+
+az login
+
+az account show
+
+az configure --defaults group=resource_group_name
+
+az aks get-Credentials --name aks_cluster_name
