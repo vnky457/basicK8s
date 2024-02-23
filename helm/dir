@@ -1,0 +1,15 @@
+Main_folder
+    templates_folder
+    values.yaml
+    chart.yaml
+    LICENSE
+    README.md
+
+## Helm chart varifying 
+    - Lint
+        ex: helm lint ./nginx
+    - Template
+        ex: helm tempalte ./directory --debug
+    -  --dry-run
+        ex: helm install chart_name ./directory --dry-run
+

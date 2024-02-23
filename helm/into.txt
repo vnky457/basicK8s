@@ -1,0 +1,51 @@
+It's package manger for kubernets cluster
+
+current version : 3.14.1 => helm version
+
+Helm repositories:
+   Main : ArtifactHub.io ( Central location)
+            - appscode
+            - TrueCharts
+            - Bitnami
+            - Community operatiors
+
+To add repo into internal directory [ helm repo --help] 
+
+    1. helm repo add bitnami https://charts.bitnami.com/bitnami
+    2. 
+
+# if want to update values before installing package
+
+step1: helm pull bitnami/wordpress ==> it pull the package from bitnami rep
+            or
+        helm pull --untar bitnami/wordpress
+
+        cd wordpress
+
+        update values.yaml => as our need update values
+
+        helm install my-release ./wordpress  => it will install the wordpress package with our values
+
+direct install the package without values update
+
+    helm install amaze-surf bitnami/apache to install.
+
+to check how releases of nginx/or other charts can you see installed in the cluster now
+        helm list
+    to remove existing helm charts
+        helm list
+        helm uninstall release_name
+
+remove repositories from the local 
+        helm repo list
+        helm repo remove repo_name
+
+to check the details of helm releases
+        helm list 
+        helm history release_name => it shows how many revisions happend to this chart
+    if want to rollback 
+        helm rollback release_name 1 
+
+to upgrade the existing helm release
+        helm upgrade release_name hub_release_chart_name
+        ex: helm upgrade nginx-release bitnami/nginx
