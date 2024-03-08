@@ -23,6 +23,9 @@ jobs:
 
       - name: Run a env varibales
         run: echo "${{ env.GENEV }}"
+
+      - name: Run a  varibales
+        run: echo "${{ var.GENEV }}"
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
