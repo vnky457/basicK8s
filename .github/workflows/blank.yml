@@ -20,6 +20,9 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo "${{ secrets.MY_FST }}"
+
+      - name: Run a env varibales
+        run: env
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
