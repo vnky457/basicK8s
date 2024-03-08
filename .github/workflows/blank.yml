@@ -22,7 +22,7 @@ jobs:
         run: echo "${{ secrets.MY_FST }}"
 
       - name: Run a env varibales
-        run: echo "$(GENEV)"
+        run: echo "${{ env.GENEV }}"
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
